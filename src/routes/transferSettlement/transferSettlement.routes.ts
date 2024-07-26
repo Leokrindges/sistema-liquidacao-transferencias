@@ -6,8 +6,8 @@ export class TransferSettlementRoutes {
     public static execute(): Router {
         const router = Router();
 
-
-        router.post("/",TransferSettlementController.inboundTransfer)
+        router.post("/inbound",TransferSettlementController.inboundTransfer)
+        router.post("/outbound",TransferSettlementController.outboundTransfer)
 
         return router
     }
