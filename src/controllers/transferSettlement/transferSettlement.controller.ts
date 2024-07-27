@@ -3,25 +3,19 @@ import { Request, Response } from "express";
 export class TransferSettlementController {
   public static async inboundTransfer(req: Request, res: Response) {
     try {
-      const trasnsfer = req.body;
+      const transfer = req.body;
 
-      if (!trasnsfer) {
-        setTimeout(() => {
-          return res.status(400).json({
-            ok: false,
-            message: "Não foi possivel realizar a operação!",
-          });
-        }, 1000);
+      if (!transfer || Object.keys(transfer).length === 0) {
+        return res.status(400).json({
+          ok: false,
+          message: "Não foi possivel realizar a operação!",
+        });
       }
 
-      if (trasnsfer) {
-        setTimeout(() => {
-          return res.status(200).json({
-            ok: true,
-            message: "Operação realizada com sucesso!",
-          });
-        }, 1000);
-      }
+      return res.status(200).json({
+        ok: true,
+        message: "Operação realizada com sucesso!",
+      });
     } catch (err) {
       return res.status(500).json({
         ok: false,
@@ -34,25 +28,19 @@ export class TransferSettlementController {
 
   public static async outboundTransfer(req: Request, res: Response) {
     try {
-      const trasnsfer = req.body;
+      const transfer = req.body;
 
-      if (!trasnsfer) {
-        setTimeout(() => {
-          return res.status(200).json({
-            ok: true,
-            message: "Não foi possivel realizar a operação!",
-          });
-        }, 1000);
+      if (!transfer || Object.keys(transfer).length === 0) {
+        return res.status(200).json({
+          ok: true,
+          message: "Não foi possivel realizar a operação!",
+        });
       }
 
-      if (trasnsfer) {
-        setTimeout(() => {
-          return res.status(200).json({
-            ok: true,
-            message: "Operação realizada com sucesso!",
-          });
-        }, 1000);
-      }
+      return res.status(200).json({
+        ok: true,
+        message: "Operação realizada com sucesso!",
+      });
     } catch (err) {
       return res.status(500).json({
         ok: false,
