@@ -7,7 +7,7 @@ export class TransferSettlementController {
 
       if (!trasnsfer) {
         setTimeout(() => {
-          return res.status(200).json({
+          return res.status(400).json({
             ok: false,
             message: "Não foi possivel realizar a operação!",
           });
