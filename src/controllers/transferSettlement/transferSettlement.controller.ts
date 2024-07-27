@@ -8,7 +8,7 @@ export class TransferSettlementController {
       if (!trasnsfer) {
         setTimeout(() => {
           return res.status(200).json({
-            ok: true,
+            ok: false,
             message: "Não foi possivel realizar a operação!",
           });
         }, 1000);
@@ -31,7 +31,7 @@ export class TransferSettlementController {
       });
     }
   }
-  
+
   public static async outboundTransfer(req: Request, res: Response) {
     try {
       const trasnsfer = req.body;
